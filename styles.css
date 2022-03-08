@@ -48,7 +48,7 @@ body
     width: 600px;
 }
 
-.card .imgBx 
+.imgBx 
 {
     position: relative;
     overflow: hidden;
@@ -64,7 +64,7 @@ body
     background: #ffffff;
 }
 
-.card .imgBx img 
+.imgBx img 
 {
     max-width: 250px;
     transition: 0.5s ease-in-out;
@@ -75,7 +75,7 @@ body
     transform: rotate(15deg);
 }
 
-.card .details 
+.details 
 {
     position: absolute;
     z-index: 1;
@@ -100,7 +100,7 @@ body
     left: 300px;
 }
 
-.card .details::before 
+.details::before 
 {
     content: '';
     position: absolute;
@@ -115,68 +115,92 @@ body
     border-left: 10px solid #ffffff;
 }
 
-.card .details .title
+.details .title
 {
     display: flex;
     flex-direction: column;
     gap: 0;
 }
 
-.card .details .productDetails
+.details .productDetails
 {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.card .details .size 
+.details .cardOptions .size 
 {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.card .details .size ul
+.details .cardOptions .size .selector
 {
-    list-style: none;
     display: flex;
     gap: 10px;
 }
 
-.card .details .size ul li 
-{
-    cursor: pointer;
+.details .cardOptions .size .selector .selectorItem
+{   
+    position: relative;
 
-    padding: 7px;
-    align-items: center;
-    border: 2px solid #ffffff;
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #ffffff;
 }
 
-.card .details .size ul li:hover 
+.details .cardOptions .size .selector .selectorItem:hover
 {
-    font-weight: 400;
-
     background: #ffffff;
     color: var(--c_BgUp);
 }
 
-.card .details .addCart 
+.details .cardOptions .size .selector .selectorItem input
+{
+    appearance: none;
+    display: none;
+} 
+
+.details .cardOptions .size .selector .selectorItem label
+{
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.5s ease-in-out;
+}
+
+.details .cardOptions .size .selector .selectorItem input:checked + label
+{   
+    background: #ffffff;
+    color: var(--c_BgUp);
+}
+
+.details .cardOptions .addCart 
 {
     display: flex;
     justify-content: space-between;
 }
 
-.card .details .addCart .price {
+.details .cardOptions .addCart .price {
     display: flex;
     align-items: baseline;
 }
 
-.card .details .addCart .price h2 {
+.details .cardOptions .addCart .price h2 {
     align-self: flex-start;
     font-weight: 400;
 }
 
-.card .details .addCart button
+.details .cardOptions .addCart button
 {
     cursor: pointer;
     border: none;
@@ -186,11 +210,19 @@ body
     font-size: .9rem;
 
     color: var(--c_BgUp);
+    transition: 0.5s ease-in-out;
 }
 
-.card .details .addCart button:hover
+.details .cardOptions .addCart button:hover
 {
     border: 2px solid #ffffff;
     background: var(--c_BgUp);
     color: #ffffff;
+}
+
+.details .cardOptions 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Document</title>
+    <title>Card UI</title>
 
     <link rel="stylesheet" href="/styles.css">
 </head>
@@ -33,34 +33,54 @@
             </div>
 
             
-            <!-- size -->
-            <div class="size">
-                <h5>SIZE</h5>
+            <form class="cardOptions">
+                <div class="size">
+                    <h5>SIZE</h5>
+                    
+                    <div class="selector">
+                        
+                        <div class="selectorItem">
+                            <input type="radio" id="item1" name="option" required>
+                            <label for="item1">36</label>
+                        </div>
 
-                <ul>
-                    <li>36</li>
-                    <li>38</li>
-                    <li><p>40</p></li>
-                    <li><p>42</p></li>
-                    <li><p>44</p></li>
-                </ul>
-            </div>
-            
-            <!-- price -->
-            <div class="addCart">
-                
-                <div class="price">
-                    <h2>$</h2>
-                    <h1>159</h1>
-                    <h3>.99</h3>
+                        <div class="selectorItem">
+                            <input type="radio" id="item2" name="option" required>
+                            <label for="item2">38</label>
+                        </div>
+
+                        <div class="selectorItem">
+                            <input type="radio" id="item3" name="option" required>
+                            <label for="item3">40</label>
+                        </div>
+
+                        <div class="selectorItem">
+                            <input type="radio" id="item4" name="option" required>
+                            <label for="item4">42</label>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <button>Add to Cart</button>
-            </div>
+                <div class="addCart">
+                
+                    <div class="price">
+                        <h2>$</h2>
+                        <h1>159</h1>
+                        <h3>.99</h3>
+                    </div>
 
-            
+                    <button>Add to Cart</button>
+                </div>
+
+            </form>
         </div>
     </div>
     
+    <button id="addProduct">Add New Product!</button>
+    
+    <script  type="module" src="/main.js"></script>
 </body>
+
 </html>
