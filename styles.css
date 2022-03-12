@@ -2,8 +2,19 @@
 
 :root 
 {
-    --c_BgUp: #ee4b4b;
-    --c_BgDown: #ebebeb;
+    --c_navBar: #1d1d1d;
+    --c_logo: #016fff;
+    --c_logoFont: #fff;
+    
+    --c_on: #ebebeb;
+    --c_off: #9c9c9c;
+
+    --c_background: #272727;
+
+    --c_encapsulado: #f8f8f80e;
+
+    --c_heart: #fa3b3b;
+    
 }
 
 *
@@ -18,13 +29,148 @@
 body 
 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    gap: 25px;
 
     font-weight: 300;
 
-    background: linear-gradient( var(--c_BgUp) 50%, var(--c_BgDown) 50%, var(--c_BgDown) 100%);
+    background: var(--c_background);
+}
+
+/* navBar --------------------------------- */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    padding: 20px 60px;
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--c_navBar);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.377);
+}  
+
+.navbarLogo {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbarLogo i {
+    font-size: 1.9rem;
+    color: var(--c_logo);
+}
+
+.navbarLogo p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--c_logoFont);
+}
+
+.navbarMenu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ligthDarkMode{
+    font-size: 1.9rem;
+    color: var(--c_off);
+}
+
+.ligthDarkMode:hover{
+    color: var(--c_on);
+}
+
+.ligthDarkMode .fa-moon{
+    display: none;
+}
+
+.ligthDarkMode input{
+    display: none;
+    appearance: none;
+}
+
+.ligthDarkMode label{
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.ligthDarkMode input:checked ~ label .fa-sun{
+    display: none;
+}
+
+.ligthDarkMode input:checked ~ label .fa-sun ~ .fa-moon{
+    display: block;
+}
+
+.ligthDarkMode input:not(:checked) ~ label .fa-sun{
+    display: block;
+}
+
+.ligthDarkMode input:not(:checked) ~ label .fa-sun ~ .fa-moon{
+    display: none;
+}
+
+/* Panel creacion card ------------------------------------- */
+
+.panelCreateCard {
+    position: relative;
+    max-width: 90%;
+}
+
+/* Card CSS ------------------------------------------------------------- */
+
+.encapsulado {
+    padding: 20px;
+    border-radius: 5px;
+
+    max-width: 90%;
+    max-height: 480px;
+
+    background: var(--c_encapsulado);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.082);
+}
+
+.cards {
+    overflow-x: auto;
+    padding: 20px 10px;
+
+    display: flex;
+    gap: 20px;
+    
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-points-x: repeat(300px);
+    scroll-snap-type: mandatory;
+}
+
+.cards::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+    background: #808080;
+    border-radius: 10px;
+    visibility: hidden;
+}
+.cards::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.encapsulado:hover .cards::-webkit-scrollbar-thumb {
+    visibility: visible;
 }
 
 .card 
@@ -36,6 +182,7 @@ body
     height: 400px;
     
     display: flex;
+    flex-shrink: 0;
 
     background: #ffffff;
     box-shadow: 0 15px 45px rgba(0,0,0,0.1);
@@ -90,7 +237,6 @@ body
     justify-content: center;
     gap: 20px;
     
-    background: var(--c_BgUp);
     color: #ffffff;
 
     transition: 0.5s ease-in-out;
@@ -122,27 +268,27 @@ body
     gap: 0;
 }
 
-.details .productDetails
+.productDetails
 {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.details .cardOptions .size 
+.size 
 {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.details .cardOptions .size .selector
+.selector
 {
     display: flex;
     gap: 10px;
 }
 
-.details .cardOptions .size .selector .selectorItem
+.selectorItem
 {   
     position: relative;
 
@@ -152,19 +298,18 @@ body
     border: 1px solid #ffffff;
 }
 
-.details .cardOptions .size .selector .selectorItem:hover
+.selectorItem:hover
 {
     background: #ffffff;
-    color: var(--c_BgUp);
 }
 
-.details .cardOptions .size .selector .selectorItem input
+.selectorItem input
 {
     appearance: none;
     display: none;
 } 
 
-.details .cardOptions .size .selector .selectorItem label
+.selectorItem label
 {
     position: relative;
     cursor: pointer;
@@ -178,29 +323,34 @@ body
     transition: 0.5s ease-in-out;
 }
 
-.details .cardOptions .size .selector .selectorItem input:checked + label
+.selectorItem input:checked + label
 {   
     background: #ffffff;
-    color: var(--c_BgUp);
 }
 
-.details .cardOptions .addCart 
+.cardOptions 
+{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 30px;
+}
+
+.addCart 
 {
     display: flex;
     justify-content: space-between;
 }
 
-.details .cardOptions .addCart .price {
+.price  {
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    gap: 2px;
+
+    font-size: 1.3rem;
 }
 
-.details .cardOptions .addCart .price h2 {
-    align-self: flex-start;
-    font-weight: 400;
-}
-
-.details .cardOptions .addCart button
+.addCart button
 {
     cursor: pointer;
     border: none;
@@ -208,25 +358,35 @@ body
 
     font-weight: 400;
     font-size: .9rem;
-
-    color: var(--c_BgUp);
 }
 
-.details .cardOptions .addCart button:hover
+.cardOptions .addCart button:hover
 {
     border: 2px solid #ffffff;
-    background: var(--c_BgUp);
     color: #ffffff;
 }
 
-.details .cardOptions 
-{
+/* footer ------------------------------------ */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    margin: 40px;
+
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 1.3rem;
+    color: var(--c_on);
 }
 
-.space {
-    height: 20px;
-    width: 20px;
+.footer a{
+    text-decoration: none;
+    font-weight: 400;
+    color: var(--c_logo);
+}
+
+.footer .fa-heart {
+    color: var(--c_heart);
 }

@@ -6,79 +6,166 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Card UI</title>
+    <!-- Titulo e Icono -->
+    <link rel="icon" href="/recursos/svg/vr-cardboard-solid.svg">
+    <title>Card Creator</title>
 
+    <!-- Css -->
     <link rel="stylesheet" href="/styles.css">
+
+    <!-- ICONS - font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body>
-    <div class="card">
+    <section class="navbar">
 
-        <div class="imgBx">
-            <img src="https://www.vans.com.co/arquivos/e-style-banner-4.png" alt="Tennis-vans">
+        <div class="navbarLogo">
+            <i class="fas fa-vr-cardboard"></i>
+            <p>Card Creator</p>
         </div>
 
-        <div class="details">
-
-            <!-- title -->
-            <div class="title">
-                <h1>Vans MaxQ+</h1>
-                <p>Men's Shoes</p>
-            </div>
-            
-            <!-- product details  -->
-            <div class="productDetails">
-                <h5>PRODUCT DETAILS</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-
-            
-            <form class="cardOptions">
-                <div class="size">
-                    <h5>SIZE</h5>
-                    
-                    <div class="selector">
-                        
-                        <div class="selectorItem">
-                            <input type="radio" id="item1" name="option" required>
-                            <label for="item1">36</label>
-                        </div>
-
-                        <div class="selectorItem">
-                            <input type="radio" id="item2" name="option" required>
-                            <label for="item2">38</label>
-                        </div>
-
-                        <div class="selectorItem">
-                            <input type="radio" id="item3" name="option" required>
-                            <label for="item3">40</label>
-                        </div>
-
-                        <div class="selectorItem">
-                            <input type="radio" id="item4" name="option" required>
-                            <label for="item4">42</label>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="addCart">
-                
-                    <div class="price">
-                        <h2>$</h2>
-                        <h1>159</h1>
-                        <h3>.99</h3>
-                    </div>
-
-                    <button>Add to Cart</button>
-                </div>
-
-            </form>
+        <div class="navbarMenu">
+            <ul>
+                <li class="ligthDarkMode">
+                    <input type="checkBox" id="darkMode" name="chk_mode" checked>
+                    <label for="darkMode">
+                        <i class="fa-solid fa-sun"></i>
+                        <i class="fa-solid fa-moon"></i>
+                    </label>
+                </li>
+            </ul>
         </div>
-    </div>
+    </section>
     
-    <button id="addProduct">Add New Product!</button>
+    <section class="panelCreateCard">
+        <button id="addProduct">Add New Product!</button>
+        
+        <!-- <form>
+            <div>
+                <h1>Product Name</h1>
+                <input type="text" id="productName" placeholder="Product Name" required>
+            </div>
+            
+            <div>
+                <h1>Product Description</h1>
+                <textarea id="productDescription" placeholder="Product Description" required></textarea>
+            </div>
+
+            <div>
+                <h1>Product Price</h1>
+                <input type="number" id="productPrice" placeholder="Product Price" required>
+            </div>
+
+            <div>
+                <h1>Product Image</h1>
+                <input type="file" id="productImage" required>
+            </div>
+
+            <div>
+                <h1>Product Category</h1>
+                <select id="productCategory" required>
+                    <option value="">Select a Category</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
+                </select>
+            </div>
+
+            <div>
+                <h1>Options</h1>
+                <select id="productSizeOptions" required>
+                    <option value="">Number of options</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </form> -->
+
+    </section>
+
+    <section class="encapsulado">
+        
+        <section class="cards">
+             <!-- <div class="card">
+
+                <div class="imgBx">
+                    <img src="https://www.vans.com.co/arquivos/e-style-banner-4.png" alt="Tennis-vans">
+                </div>
+
+                <div class="details">
+
+                    <div class="title">
+                        <h1>Vans MaxQ+</h1>
+                        <p>Men's Shoes</p>
+                    </div>
+                    
+                    <div class="productDetails">
+                        <h5>PRODUCT DETAILS</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+
+                    
+                    <form class="cardOptions">
+                        <div class="size">
+                            <h5>SIZE</h5>
+                            
+                            <div class="selector">
+                                
+                                <div class="selectorItem">
+                                    <input type="radio" id="item1" name="option" required>
+                                    <label for="item1">36</label>
+                                </div>
+
+                                <div class="selectorItem">
+                                    <input type="radio" id="item2" name="option" required>
+                                    <label for="item2">38</label>
+                                </div>
+
+                                <div class="selectorItem">
+                                    <input type="radio" id="item3" name="option" required>
+                                    <label for="item3">40</label>
+                                </div>
+
+                                <div class="selectorItem">
+                                    <input type="radio" id="item4" name="option" required>
+                                    <label for="item4">42</label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="addCart">
+                        
+                            <div class="price">
+                                <h2>$</h2>
+                                <h1>159</h1>
+                                <h3>.99</h3>
+                            </div>
+
+                            <button>Add to Cart</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div> -->
+        </section>
+
+    </section>
+
+    <section class="footer">
+        <p>Made with</p>
+        <i class="fas fa-heart"></i>
+        <p>
+            by <a href="https://github.com/LeojAnidem">Jeremy Medina</a>
+        </p> 
+    </section>
     
     <script  type="module" src="/main.js"></script>
 </body>
