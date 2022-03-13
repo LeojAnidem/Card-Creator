@@ -11,6 +11,9 @@
 
     --c_background: #272727;
 
+    --c_panelCreateCard: #016fff;
+    --c_panelCardFont: #ececec;
+
     --c_encapsulado: #f8f8f80e;
 
     --c_heart: #fa3b3b;
@@ -33,12 +36,47 @@ body
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    gap: 25px;
+    gap: 20px;
 
     font-weight: 300;
 
     background: var(--c_background);
 }
+
+/* Swiper Styles ------------------------------- */
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide {
+    width: 60%;
+  }
+
+  .swiper-slide:nth-child(2n) {
+    width: 40%;
+  }
+
+  .swiper-slide:nth-child(3n) {
+    width: 20%;
+  }
 
 /* navBar --------------------------------- */
 
@@ -126,66 +164,75 @@ body
 
 .panelCreateCard {
     position: relative;
-    max-width: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.panel{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.panel h1{
+    align-self: flex-start;
+    color: var(--c_panelCardFont);
+}
+
+.panel form{
+    position: relative;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    
+    border-radius: 9px;
+    background: var(--c_panelCreateCard);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.377);
+}
+
+.panel .info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+
+    color: var(--c_panelCardFont);
+}
+
+.panel .info div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Card CSS ------------------------------------------------------------- */
 
 .encapsulado {
-    padding: 20px;
-    border-radius: 5px;
-
-    max-width: 90%;
-    max-height: 480px;
-
-    background: var(--c_encapsulado);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.082);
-}
-
-.cards {
-    overflow-x: auto;
-    padding: 20px 10px;
-
-    display: flex;
-    gap: 20px;
-    
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-points-x: repeat(300px);
-    scroll-snap-type: mandatory;
-}
-
-.cards::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
-.cards::-webkit-scrollbar-thumb {
-    background: #808080;
-    border-radius: 10px;
-    visibility: hidden;
-}
-.cards::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.encapsulado:hover .cards::-webkit-scrollbar-thumb {
-    visibility: visible;
+    max-width: 95%;
+    height: 480px;
 }
 
 .card 
 {
     position: relative;
-    overflow: hidden;
 
     width: 300px;
     height: 400px;
     
     display: flex;
-    flex-shrink: 0;
 
     background: #ffffff;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 12px rgba(126, 126, 126, 0.548);
 
     transition: 0.5s ease-in-out;
 }

@@ -13,6 +13,9 @@
     <!-- Css -->
     <link rel="stylesheet" href="/styles.css">
 
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
     <!-- ICONS - font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -40,123 +43,148 @@
     </section>
     
     <section class="panelCreateCard">
-        <button id="addProduct">Add New Product!</button>
         
-        <!-- <form>
-            <div>
-                <h1>Product Name</h1>
-                <input type="text" id="productName" placeholder="Product Name" required>
-            </div>
+        <div class="panel">
             
-            <div>
-                <h1>Product Description</h1>
-                <textarea id="productDescription" placeholder="Product Description" required></textarea>
-            </div>
+            <h1>Creator Card Panel</h1>
 
-            <div>
-                <h1>Product Price</h1>
-                <input type="number" id="productPrice" placeholder="Product Price" required>
-            </div>
+            <form>
+                <div class="info">
+                    <div>
+                        <div>
+                            <h3>Product Name</h3>
+                            <input type="text" id="productName" placeholder="Product Name" required>
+                        </div>
+                        
+                        <div>
+                            <h3>Product Price</h3>
+                            <input type="number" id="productPrice" placeholder="Product Price" required>
+                        </div> 
+                        
+                    </div>
+                    
+                    <div>
 
-            <div>
-                <h1>Product Image</h1>
-                <input type="file" id="productImage" required>
-            </div>
+                        <div>
+                                <h3>Product Category</h3>
+                                <select id="productCategory" required>
+                                    <option value="">Select a Category</option>
+                                    <option value="1">Category 1</option>
+                                    <option value="2">Category 2</option>
+                                    <option value="3">Category 3</option>
+                                </select>
+                        </div>
+                            
+                        <div>
+                                <h3>Options</h3>
+                                <select id="productSizeOptions" required>
+                                    <option value="">Number of options</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                        </div>
 
-            <div>
-                <h1>Product Category</h1>
-                <select id="productCategory" required>
-                    <option value="">Select a Category</option>
-                    <option value="1">Category 1</option>
-                    <option value="2">Category 2</option>
-                    <option value="3">Category 3</option>
-                </select>
-            </div>
+                    </div>
+                    
+                    <div>
+                        <h3>Product Description</h3>
+                        <textarea id="productDescription" placeholder="Product Description" required></textarea>
+                    </div>
+        
+                    <div>
+                        <h3>Product Image</h3>
+                        <input type="file" id="productImage" required>
+                    </div> 
+        
+                </div>
 
-            <div>
-                <h1>Options</h1>
-                <select id="productSizeOptions" required>
-                    <option value="">Number of options</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-        </form> -->
+                <button id="addProduct" >
+                    <i class="fas fa-plus"></i> 
+                    <p>Add New Card!</p>
+                </button>
+
+            </form>
+
+        </div>
 
     </section>
 
-    <section class="encapsulado">
+    <section class="encapsulado swiper mySwiper">
         
-        <section class="cards">
-             <!-- <div class="card">
+        <div class="swiper-wrapper">
+            <!-- <div class="swiper-slide">
+                <div class="card">
 
-                <div class="imgBx">
-                    <img src="https://www.vans.com.co/arquivos/e-style-banner-4.png" alt="Tennis-vans">
-                </div>
-
-                <div class="details">
-
-                    <div class="title">
-                        <h1>Vans MaxQ+</h1>
-                        <p>Men's Shoes</p>
-                    </div>
-                    
-                    <div class="productDetails">
-                        <h5>PRODUCT DETAILS</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <div class="imgBx">
+                        <img src="https://www.vans.com.co/arquivos/e-style-banner-4.png" alt="Tennis-vans">
                     </div>
 
-                    
-                    <form class="cardOptions">
-                        <div class="size">
-                            <h5>SIZE</h5>
-                            
-                            <div class="selector">
-                                
-                                <div class="selectorItem">
-                                    <input type="radio" id="item1" name="option" required>
-                                    <label for="item1">36</label>
-                                </div>
+                    <div class="details">
 
-                                <div class="selectorItem">
-                                    <input type="radio" id="item2" name="option" required>
-                                    <label for="item2">38</label>
-                                </div>
-
-                                <div class="selectorItem">
-                                    <input type="radio" id="item3" name="option" required>
-                                    <label for="item3">40</label>
-                                </div>
-
-                                <div class="selectorItem">
-                                    <input type="radio" id="item4" name="option" required>
-                                    <label for="item4">42</label>
-                                </div>
-
-                            </div>
-
+                        <div class="title">
+                            <h1>Vans MaxQ+</h1>
+                            <p>Men's Shoes</p>
                         </div>
-
-                        <div class="addCart">
                         
-                            <div class="price">
-                                <h2>$</h2>
-                                <h1>159</h1>
-                                <h3>.99</h3>
-                            </div>
-
-                            <button>Add to Cart</button>
+                        <div class="productDetails">
+                            <h5>PRODUCT DETAILS</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
 
-                    </form>
+                        
+                        <form class="cardOptions">
+                            <div class="size">
+                                <h5>SIZE</h5>
+                                
+                                <div class="selector">
+                                    
+                                    <div class="selectorItem">
+                                        <input type="radio" id="item1" name="option" required>
+                                        <label for="item1">36</label>
+                                    </div>
+
+                                    <div class="selectorItem">
+                                        <input type="radio" id="item2" name="option" required>
+                                        <label for="item2">38</label>
+                                    </div>
+
+                                    <div class="selectorItem">
+                                        <input type="radio" id="item3" name="option" required>
+                                        <label for="item3">40</label>
+                                    </div>
+
+                                    <div class="selectorItem">
+                                        <input type="radio" id="item4" name="option" required>
+                                        <label for="item4">42</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="addCart">
+                            
+                                <div class="price">
+                                    <h2>$</h2>
+                                    <h1>159</h1>
+                                    <h3>.99</h3>
+                                </div>
+
+                                <button>Add to Cart</button>
+                            </div>
+
+                        </form>
+                    </div>
+
                 </div>
-
             </div> -->
-        </section>
+        </div>
 
+        <div class="swiper-pagination"></div>
+        
     </section>
 
     <section class="footer">
@@ -167,7 +195,26 @@
         </p> 
     </section>
     
+    <!-- Scripts y mas -------------------------------------- -->
+
     <script  type="module" src="/main.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        centeredSlides: true,
+        spaceBetween: 0,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+
 </body>
 
 </html>

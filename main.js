@@ -1,5 +1,20 @@
 import {_, createElement, deleteChild} from 'https://cdn.jsdelivr.net/gh/LeojAnidem/Library@fabe9c6/domFunctions.js'
 
+let refreshCSS = () => {
+    let links = document.getElementsByTagName('link');
+    for (let i = 0; i < links.length; i++) {
+        if (links[i].getAttribute('rel') == 'stylesheet') {
+            let href = links[i].getAttribute('href')
+                                    .split('?')[0];
+              
+            let newHref = href + '?version=' 
+                        + new Date().getMilliseconds();
+              
+            links[i].setAttribute('href', newHref);
+        }
+    }
+}
+
 const addBtn = _('#addProduct');
 const inputLightDark = _('#darkMode');
 
@@ -24,11 +39,12 @@ class Product {
     }
 
     drawProduct(){
-            createElement('.cards', 'div', `card ${this.id}`);
-                createElement(`.${this.id}`, 'div', 'imgBx');
+        createElement('.encapsulado .swiper-wrapper', 'div', `swiper-slide ${this.id}`);
+            createElement(`.${this.id}`, 'div', `card`);
+                createElement(`.${this.id} .card`, 'div', 'imgBx');
                     createElement(`.${this.id} .imgBx`, 'img', this.img.src, this.img.alt);
 
-                createElement(`.${this.id}`, 'div', 'details');
+                createElement(`.${this.id} .card`, 'div', 'details');
                     createElement(`.${this.id} .details`, 'div', 'title');
                         createElement(`.${this.id} .title`, 'h1', '', this.name);
                         createElement(`.${this.id} .title`, 'p', '', this.category);
@@ -128,10 +144,8 @@ addBtn.addEventListener('click', () => {
     card1.dibujar();
     card1.applyColor(id);
 
-    _(`.${id}`).addEventListener('mouseover', function(){
-        _('.cards').scrollLeft = _('.cards').scrollWidth;
-    });
-     
+    refreshCSS();
+
     num++;
 });
 
@@ -140,11 +154,13 @@ inputLightDark.addEventListener('change', function(){
     if(this.checked){
         document.body.style.background = '#272727';
         _('.footer').style.color = '#ebebeb';
+        _('.card').style['boxShadow'] = '0 7px 20px rgba(0, 0, 0, 0.377);';
     }
 
     else{
         document.body.style.background = '#ebebeb';
         _('.footer').style.color = '#272727';
+        _('.card').style['boxShadow'] = '0 5px 15px rgba(0,0,0,0.1)';
     }
 
 });
