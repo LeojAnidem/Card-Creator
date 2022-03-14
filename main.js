@@ -15,8 +15,25 @@ let refreshCSS = () => {
     }
 }
 
-const addBtn = _('#addProduct');
 const inputLightDark = _('#darkMode');
+
+inputLightDark.addEventListener('change', function(){
+
+    if(this.checked){
+        document.body.style.background = '#272727';
+        _('.footer').style.color = '#ebebeb';
+        _('.card').style['boxShadow'] = '0 7px 20px rgba(0, 0, 0, 0.377)';
+        
+    }
+
+    else{
+        document.body.style.background = '#ebebeb';
+        _('.footer').style.color = '#272727'; 
+        _('.card').style['boxShadow'] = '0 5px 15px rgba(0,0,0,0.1)';
+    }
+
+});
+
 
 // Crear objeto card!
 
@@ -71,6 +88,11 @@ class Product {
                                 createElement(`.${this.id} .price`, 'h3', '', '.99');
                             
                             createElement(`.${this.id} .addCart`, 'button', '', 'Add to cart');
+        
+        if(_('.encapsulado').style.display != 'block'){
+            _('.encapsulado').style.display = 'block';
+        }
+        
     }
 }
 
@@ -118,50 +140,29 @@ class Card {
     }
 
     dibujar() {
-        //Fondo
         this.product.drawProduct();
-                          
+        this.applyColor(this.product.id);
+        refreshCSS();      
     }
 }
 
 let srcImg1 = 'https://www.vans.com.co/arquivos/e-style-banner-4.png';
 let details1 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
 let options1 = [36,38,40,42,44];
-
 const img1 = new Img(srcImg1, 'Tennis-vans');
 
 let num = 0;
 let id;
 
-addBtn.addEventListener('click', () => {
+const addBtn = _('#addProduct');
 
-    // Aqui dentro debera ir todo el codigo de admin!
+addBtn.addEventListener('click', () => {
 
     id = `card${num}`;
     const product1 = new Product(id ,img1, 'Vans MaxQ+', `Men's Shoes`, details1, options1, '159');
 
     const card1 = new Card('#016fff', product1);
     card1.dibujar();
-    card1.applyColor(id);
-
-    refreshCSS();
 
     num++;
 });
-
-inputLightDark.addEventListener('change', function(){
-
-    if(this.checked){
-        document.body.style.background = '#272727';
-        _('.footer').style.color = '#ebebeb';
-        _('.card').style['boxShadow'] = '0 7px 20px rgba(0, 0, 0, 0.377);';
-    }
-
-    else{
-        document.body.style.background = '#ebebeb';
-        _('.footer').style.color = '#272727';
-        _('.card').style['boxShadow'] = '0 5px 15px rgba(0,0,0,0.1)';
-    }
-
-});
-

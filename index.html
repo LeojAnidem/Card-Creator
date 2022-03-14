@@ -38,45 +38,60 @@
                         <i class="fa-solid fa-moon"></i>
                     </label>
                 </li>
+
+                <li class="CreateCard">
+                    <input type="checkBox" id="panelCreate" name="'chk_panel">
+                    <label for="panelCreate">
+                        <i class="far fa-plus-square"></i>
+                    </label>
+
+                    <div class="panelWrap">
+                        <div class="panel">
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                        </div>
+                    </div>
+
+                </li>
+
             </ul>
         </div>
     </section>
     
     <section class="panelCreateCard">
         
-        <div class="panel">
+        <!-- <div class="panel">
             
             <h1>Creator Card Panel</h1>
 
             <form>
                 <div class="info">
-                    <div>
-                        <div>
-                            <h3>Product Name</h3>
+                    <div class="panelIzquierdo">
+                        <div class="ProductName">
+                            <label for="productName">Product Name</label>
                             <input type="text" id="productName" placeholder="Product Name" required>
                         </div>
                         
-                        <div>
-                            <h3>Product Price</h3>
-                            <input type="number" id="productPrice" placeholder="Product Price" required>
+                        <div class="productPrice">
+                            <label for="productPrice">Price: </label>
+                            <p>$</p>
+                            <input type="number" id="productPrice" placeholder="Price" required>
                         </div> 
+
+                        <div class="ProductCategory">
+                            <label for="productCategory">Category</label>
+                            <select id="productCategory" required>
+                                <option value="">Select a Category</option>
+                                <option value="Men's Shoes"> Men's Shoes</option>
+                                <option value="Woman's Shoes">Woman's Shoes</option>
+                            </select>
+                    </div>
                         
                     </div>
                     
                     <div>
-
-                        <div>
-                                <h3>Product Category</h3>
-                                <select id="productCategory" required>
-                                    <option value="">Select a Category</option>
-                                    <option value="1">Category 1</option>
-                                    <option value="2">Category 2</option>
-                                    <option value="3">Category 3</option>
-                                </select>
-                        </div>
                             
                         <div>
-                                <h3>Options</h3>
+                                <label for="productSizeOptions">Size Options</label>
                                 <select id="productSizeOptions" required>
                                     <option value="">Number of options</option>
                                     <option value="1">1</option>
@@ -101,14 +116,11 @@
         
                 </div>
 
-                <button id="addProduct" >
-                    <i class="fas fa-plus"></i> 
-                    <p>Add New Card!</p>
-                </button>
+                
 
             </form>
 
-        </div>
+        </div> -->
 
     </section>
 
