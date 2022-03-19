@@ -12,13 +12,16 @@
     --c_background: #272727;
 
     --c_panelCreateCard: #016fff;
-    --c_panelCardFont: #ececec;
-    --c_panelPlaceholder: #ecececb2;
 
-    --c_encapsulado: #f8f8f80e;
+    --c_creatorCardBackground: #016fff;
+    --c_creatorCardImgBackground: #fff;
+    --c_creatorCardPlaceHolder: #cccccc;
+    --c_creatorCardFont: #ffffff;
+
+    --c_buttonAdd: #2af134;
+    --c_buttonDelete: #fa3b3b;
 
     --c_heart: #fa3b3b;
-    
 }
 
 *
@@ -49,9 +52,9 @@ body
 .swiper {
     width: 100%;
     height: 100%;
-  }
+}
 
-  .swiper-slide {
+.swiper-slide {
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -65,19 +68,19 @@ body
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-  }
+}
 
-  .swiper-slide {
+.swiper-slide {
     width: 60%;
-  }
+}
 
-  .swiper-slide:nth-child(2n) {
+.swiper-slide:nth-child(2n) {
     width: 40%;
-  }
+}
 
-  .swiper-slide:nth-child(3n) {
+.swiper-slide:nth-child(3n) {
     width: 20%;
-  }
+}
 
 /* navBar --------------------------------- */
 
@@ -138,7 +141,6 @@ body
 
 .navbarMenu ul li input{
     display: none;
-    appearance: none;
 } 
 
 .ligthDarkMode .fa-moon{
@@ -169,116 +171,449 @@ body
     z-index: 10;
     top: 0;
     right: 0;
-
-    transition: 0.5s ease-out;
 }
 
 .panel{
     position: absolute;
     overflow: auto;
-    padding: 20px;
     
     top: 70px;
     right: 0;
 
-    color: var(--c_panelCardFont);
     border-radius: 10px;
     background: var(--c_panelCreateCard);
 }
 
 input:checked ~ .panelWrap {
     display: block;
+    transition: 0.5s ease-in-out;
 }
 
-/* 
-.panel{
+.navbarMenu .panel input{
+    display: block;
+}
+
+.creatorCard {
+    position: relative;
+    margin: 20px;
+
+    height: 400px;
+    width: 600px;
+
+    display: flex;
+
+    background: var(--c_creatorCardImgBackground);
+    box-shadow: 0 5px 15px rgb(49, 49, 49);
+
+    font-size: .9rem;
+
+    transition: 0.5s ease-in-out;
+}
+
+.creatorCard .imgSelect{
+    position: relative;
+    overflow: hidden;
+    
+    min-width: 300px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: normal;
+    background: var(--c_creatorCardImgBackground);
+    color: var(--c_creatorCardPlaceHolder);
+}
+
+.creatorCard .imgSelect img{
+    max-width: 250px;
+    transition: 0.5s ease-in-out;
+}
+
+.creatorCard .imgSelect img::before{
+    position: absolute;
+    content: "\0026A0  Sin imagen! \A";
+    text-align:center;
+
+    left: 0;
     width: 100%;
+
+    font-size: 1.3rem;
+    font-weight: normal;
+
+    background: var(--c_creatorCardImgBackground);
+    color:var(--c_creatorCardPlaceHolder);
+}
+
+
+.creatorCard .imgSelect input{
+    display: none;
+}
+
+.creatorCard .detailsSelect{
+    position: relative;
+    overflow: hidden;
+
+    width: 300px;
+    height: 100%;
+    padding: 20px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 20px;
-}
-
-.panel h1{
-    align-self: flex-start;
-    color: var(--c_panelCardFont);
-}
-
-.panel form{
-    position: relative;
-    padding: 20px;
-
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
     
-    border-radius: 9px;
-    background: var(--c_panelCreateCard);
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.377);
+    color: var(--c_creatorCardFont);
+    background: var(--c_creatorCardBackground);
 
-    font-size: 1.2rem;
-    font-weight: 400;
+    transition: 0.5s ease-in-out;
 }
 
-.panel .info {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 30px;
+.creatorCard .edit{
+    position: absolute;
+    cursor: pointer;
+    padding: 10px;
 
-    color: var(--c_panelCardFont);
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+
+    font-size: 1.5rem;
+    color: var(--c_creatorCardFont);
+    transition: 0.5s ease-in-out;
 }
 
-.info input{
-    appearance: none;
-    border: none;
-    padding: 5px;
-
-    font-weight: 300;
-
-    color: var(--c_panelCardFont);
-    background: var(--c_panelCreateCard);
-    border-bottom: 1.7px solid var(--c_panelCardFont);
+.creatorCard .edit input{
+    display: none;
 }
 
-.info input:focus{
-    outline: none;
+.creatorCard .color{
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
-.info input::placeholder{
-    color: var(--c_panelPlaceholder);
+.creatorCard .color label i{
+    font-size: 1.5rem;
+    color: var(--c_creatorCardFont);
 }
 
-.panelIzquierdo{
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
+.creatorCard .color input{
+    position: absolute;
+    z-index: -2;
+    top: 5px;
 }
 
-.panelIzquierdo div{
+.creatorCard .detailHeader{
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.panelIzquierdo .productPrice{
+.creatorCard .name input[type="text"]{
+    overflow: hidden;
+    
+    outline: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+    
+    max-width: 90%;
+    height: auto;
+
+    font-size: 1.9rem;
+    font-weight: bold;
+
+    color: var(--c_creatorCardFont);
+    /* border-bottom: 1px solid var(--c_creatorCardFont); */
+}
+
+.creatorCard .name input::placeholder{
+    color: var(--c_creatorCardFont);
+    opacity: .4;
+}
+
+.creatorCard .name input:focus{
+    border-bottom: 1px solid var(--c_creatorCardFont);
+}
+
+.creatorCard .name input:enabled::placeholder{
+    opacity: 1;
+}
+
+.creatorCard .category{
+    position: relative;
+    cursor: pointer;
+    width: 140px;
+
+    background: transparent;
+}
+
+.creatorCard .category::before{
+    position: absolute;
+    content: '';
+
+    right: 10px;
+    bottom: 4px;
+
+    pointer-events: none;
+
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid var(--c_creatorCardFont);
+
+    color: var(--c_creatorCardFont);
+    
+}
+
+.creatorCard .category select{
+    cursor: inherit;
+    outline: none;
+    appearance: none;
+    border: none;
+    background: var(--c_creatorCardBackground);
+
+    width: 100%;
+
+    font-size: 1rem;
+    font-weight: lighter;
+    color: var(--c_creatorCardFont);
+}
+
+.creatorCard .detail{
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    color: var(--c_creatorCardFont);
+}
+
+.creatorCard .detail span{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.creatorCard .detail textarea{
+    resize: none;
+    overflow: hidden;
+    outline: none;
+    appearance: none;
+    border: none;
+
+    width: 100%;
+    height: 40px;
+
+    font-size: 1rem;
+    font-weight: lighter;
+
+    background: transparent;
+    color: var(--c_creatorCardFont);
+}
+
+.creatorCard .detail textarea::placeholder{
+    color: var(--c_creatorCardFont);
+    opacity: .4;
+}
+
+.creatorCard .detail textarea:focus{
+    border-bottom: 1px solid var(--c_creatorCardFont);
+}
+
+.creatorCard .detail textarea:enabled::placeholder{
+    opacity: 1;
+}
+
+.creatorCard .sizeOpc{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.creatorCard .sizeOpc span{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.creatorCard .sizeOpc .sizeDiv{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.creatorCard .sizeOpc .items{
+    display: flex;
+    justify-items: center;
+    gap: 5px;
+}
+
+.creatorCard .items .item{ 
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
+
+    transition: 0.5s ease-in-out;
 }
 
-.productPrice input{
-    width: 25%;
+.creatorCard .item input{
+    appearance: none;
+    outline: none;
+    background: transparent;
+
+    width: 100%;
+    height: 100%;
+    
+    text-align: center;
+    font-size: 1rem;
+    font-weight: lighter;
+    border: 1px solid var(--c_creatorCardFont);
+
+    color: var(--c_creatorCardFont);
 }
 
-.productPrice input::-webkit-inner-spin-button,
-.productPrice input::-webkit-outer-spin-button {
+.creatorCard .item input::-webkit-inner-spin-button,
+.creatorCard .item input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-} */
+}
+
+.creatorCard .item input:focus{
+    border-bottom: 1px solid var(--c_creatorCardFont);
+}
+
+.creatorCard .item input::placeholder{
+    color: var(--c_creatorCardFont);
+    opacity: 0.4;
+}
+
+.creatorCard .item input:enabled::placeholder{
+    opacity: 1;
+}
+
+.creatorCard .addDeleteItem button{
+    appearance: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    
+    width: 25px;
+    height: 25px;
+    
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 3px;
+    color: var(--c_creatorCardFont);
+}
+
+.creatorCard .addDeleteItem .add{
+    background: var(--c_buttonAdd);
+}
+
+.creatorCard .addDeleteItem .delete{
+    background: var(--c_buttonDelete);
+}
+
+.creatorCard .addDeleteItem .add:hover{
+    background: var(--c_creatorCardFont);
+    color: var(--c_buttonAdd);
+}
+
+.hidden{
+    display: none;
+    transition: 0.5s ease-in-out;
+}
+
+.disabled{
+    pointer-events: none;
+    opacity: .4;
+    transition: 0.5s ease-in-out;
+}
+
+.creatorCard .addCard{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.creatorCard .priceDetail{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.creatorCard .priceDetail h2{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.creatorCard .priceDetail input{
+    appearance: none;
+    outline: none;
+    border: none;
+    background: transparent;
+
+    width: 60px;
+
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--c_creatorCardFont);
+}
+
+.creatorCard .priceDetail input::-webkit-inner-spin-button,
+.creatorCard .priceDetail input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.creatorCard .priceDetail input:focus{
+    border-bottom: 1px solid var(--c_creatorCardFont);
+}
+
+.creatorCard .priceDetail h3{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.creatorCard .priceDetail input::placeholder{
+    color: var(--c_creatorCardFont);
+}
+
+.creatorCard .addCard button{
+    appearance: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+
+    width: 130px;
+    height: 40px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    border: 1px solid var(--c_creatorCardFont);
+    color: var(--c_creatorCardFont);
+}
+
+.creatorCard .addCard button:hover{
+    background: var(--c_creatorCardFont);
+    color: var(--c_creatorCardBackground);
+}
 
 /* Card CSS ------------------------------------------------------------- */
 
@@ -352,7 +687,7 @@ input:checked ~ .panelWrap {
     gap: 20px;
     
     color: #ffffff;
-
+    
     transition: 0.5s ease-in-out;
 }
 

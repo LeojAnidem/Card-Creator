@@ -46,82 +46,110 @@
                     </label>
 
                     <div class="panelWrap">
+                        
                         <div class="panel">
-                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+                            <form class="creatorCard">
+                                
+                                <div class="edit">
+                                    <input type="checkbox" id="edit">
+                                    <label for="edit">
+                                        <i class="fas fa-edit"></i>
+                                    </label>
+                                </div>
+
+                                <div class="imgSelect">
+                                    <input type="file"  id="imgHolder" required>
+                                    <label class="disabled" id="otp" for="imgHolder">
+                                        <img id="imgPreview" alt="Click me, to add Image!">
+                                    </label>
+                                </div>
+
+                                <div class="detailsSelect">
+
+                                    <div class="color">
+                                        <input type="color" id="colorSelector" required>
+                                        <label class="disabled" id="otp" for="colorSelector">
+                                            <i class="fas fa-palette"></i>
+                                        </label>
+                                    </div>
+
+                                    <div class="detailHeader">
+
+                                        <div class="name">
+                                            <input type="text" id="otp" placeholder="Vans MaxQ+" minlength="3" maxlength="15" disabled required>
+                                        </div>
+    
+                                        <div class="category">
+                                            <select name="category" id="otp" disabled required>
+                                                <option value="Men's Shoes">Men's Shoes</option>
+                                                <option value="Woman's Shoes">Woman's Shoes</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    
+                                    <div class="detail">
+                                        <span>PRODUCT DETAILS</span>
+                                        <textarea name="details" id="otp" maxlength="54" disabled placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." required></textarea>
+                                    </div>  
+                                        
+                                    <div class="sizeOpc">
+                                        <span>SIZE</span>
+
+                                        <div class="sizeDiv">
+
+                                            <div class="items">
+                                            
+                                                <div class="item">
+                                                    <input type="text" pattern='\d*' id="otp" placeholder="32" maxlength="2" disabled required>
+                                                </div>
+
+                                            </div>
+                                            
+                                            <div class="addDeleteItem">
+                                                    
+                                                <Button type="button" class="add disabled" id="otp" disabled>
+                                                    <i class="fas fa-plus"></i>
+                                                </Button>
+
+                                                <Button type="button" class="delete disabled hidden" id="otp" disabled>
+                                                    <i class="fas fa-minus"></i>
+                                                </Button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="addCard">
+
+                                        <div class="priceDetail">
+                                            <h2>$</h2>
+                                            <input type="text" pattern="\d*" name="price" class="disabled" id="otp" placeholder="159" maxlength="3" disabled required>
+                                            <h3>.99</h3>
+                                        </div>
+                                        
+                                        <Button id="otp" class="createCard disabled" disabled>
+                                            <i class="fas fa-plus"></i> 
+                                            Add Card
+                                        </Button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
                         </div>
+
                     </div>
 
                 </li>
 
             </ul>
         </div>
-    </section>
-    
-    <section class="panelCreateCard">
-        
-        <!-- <div class="panel">
-            
-            <h1>Creator Card Panel</h1>
-
-            <form>
-                <div class="info">
-                    <div class="panelIzquierdo">
-                        <div class="ProductName">
-                            <label for="productName">Product Name</label>
-                            <input type="text" id="productName" placeholder="Product Name" required>
-                        </div>
-                        
-                        <div class="productPrice">
-                            <label for="productPrice">Price: </label>
-                            <p>$</p>
-                            <input type="number" id="productPrice" placeholder="Price" required>
-                        </div> 
-
-                        <div class="ProductCategory">
-                            <label for="productCategory">Category</label>
-                            <select id="productCategory" required>
-                                <option value="">Select a Category</option>
-                                <option value="Men's Shoes"> Men's Shoes</option>
-                                <option value="Woman's Shoes">Woman's Shoes</option>
-                            </select>
-                    </div>
-                        
-                    </div>
-                    
-                    <div>
-                            
-                        <div>
-                                <label for="productSizeOptions">Size Options</label>
-                                <select id="productSizeOptions" required>
-                                    <option value="">Number of options</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                        </div>
-
-                    </div>
-                    
-                    <div>
-                        <h3>Product Description</h3>
-                        <textarea id="productDescription" placeholder="Product Description" required></textarea>
-                    </div>
-        
-                    <div>
-                        <h3>Product Image</h3>
-                        <input type="file" id="productImage" required>
-                    </div> 
-        
-                </div>
-
-                
-
-            </form>
-
-        </div> -->
-
     </section>
 
     <section class="encapsulado swiper mySwiper">
@@ -216,15 +244,26 @@
 
     <!-- Initialize Swiper -->
     <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
-        centeredSlides: true,
-        spaceBetween: 0,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
+
+        let slides = 3;
+
+        if (screen.width < 1920){
+            slides = 2;
+        }
+
+        if (screen.width <= 1024){
+            slides = 1;
+        }
+
+        let swiper = new Swiper(".mySwiper", {
+            slidesPerView: slides,
+            centeredSlides: true,
+            spaceBetween: 0,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
     </script>
 
 </body>

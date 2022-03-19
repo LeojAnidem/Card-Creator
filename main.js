@@ -15,6 +15,33 @@ let refreshCSS = () => {
     }
 }
 
+const getContrast = function (hexcolor){
+
+	// If a leading # is provided, remove it
+	if (hexcolor.slice(0, 1) === '#') {
+		hexcolor = hexcolor.slice(1);
+	}
+
+	// If a three-character hexcode, make six-character
+	if (hexcolor.length === 3) {
+		hexcolor = hexcolor.split('').map(function (hex) {
+			return hex + hex;
+		}).join('');
+	}
+
+	// Convert to RGB value
+	var r = parseInt(hexcolor.substr(0,2),16);
+	var g = parseInt(hexcolor.substr(2,2),16);
+	var b = parseInt(hexcolor.substr(4,2),16);
+
+	// Get YIQ ratio
+	var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+
+	// Check contrast
+	return (yiq >= 128) ? 'black' : 'white';
+
+};
+
 const inputLightDark = _('#darkMode');
 
 inputLightDark.addEventListener('change', function(){
@@ -154,15 +181,84 @@ const img1 = new Img(srcImg1, 'Tennis-vans');
 let num = 0;
 let id;
 
-const addBtn = _('#addProduct');
+const addBtn = _('.createCard');
 
-addBtn.addEventListener('click', () => {
+addBtn.addEventListener('click', (e) => {
 
+    e.preventDefault();
     id = `card${num}`;
+
+
+    
+    
     const product1 = new Product(id ,img1, 'Vans MaxQ+', `Men's Shoes`, details1, options1, '159');
 
     const card1 = new Card('#016fff', product1);
     card1.dibujar();
 
     num++;
+});
+
+const editChk = _('#edit');
+const otp = document.querySelectorAll('#otp');
+
+editChk.addEventListener('change', function() {
+    if(editChk.checked){
+        otp.forEach(e => {
+            e.removeAttribute('disabled');
+            e.classList.remove('disabled');
+        });
+    }
+
+    else{
+        otp.forEach(e => {
+            e.setAttribute('disabled', 'true');
+            e.className += ' disabled';
+        });
+    }
+});
+
+const addItem = _('.creatorCard .add');
+const removeItem = _('.creatorCard .delete');
+
+let firstClic =  false;
+let numId = 0;
+
+addItem.addEventListener('click', function(){
+    
+    let itemId = `item${numId}`;
+
+    if (numId === 0){
+        removeItem.classList.remove('hidden');
+    }
+
+    if (numId === 3){
+        addItem.className += ' hidden';
+    }
+
+    createElement('.creatorCard .items', 'div' , `item ${itemId}`);
+    createElement(`.creatorCard .${itemId}`, 'input', 'text', '', '32', '', '2');
+
+    let item = _(`.creatorCard .items .${itemId} input`);
+    item.pattern = '\d*';
+    item.id = 'otp';
+
+    numId++;
+});
+
+removeItem.addEventListener('click', function(){
+    let lastItem = _('.creatorCard .items').lastChild;
+    lastItem.remove();
+    
+    console.log(numId);
+    
+    if(numId === 1){
+        removeItem.className += ' hidden';
+    }
+
+    if(numId === 4){
+        addItem.classList.remove('hidden');
+    }
+
+    numId--;
 });
