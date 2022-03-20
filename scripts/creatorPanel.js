@@ -1,4 +1,4 @@
-import {createElement, imgPreview, getContrast} from 'https://cdn.jsdelivr.net/gh/LeojAnidem/Library@fabe9c6/domFunctions.js';
+import {_, createElement, imgPreview, getContrast} from 'https://cdn.jsdelivr.net/gh/LeojAnidem/Library/domFunctions.js';
 
 const createPanel = function(){
     const editChk = _('#edit'),

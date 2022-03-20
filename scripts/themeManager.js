@@ -1,3 +1,5 @@
+import {_} from 'https://cdn.jsdelivr.net/gh/LeojAnidem/Library/domFunctions.js';
+
 const themeColor = function(){
     const inputLightDark = _('#darkMode');
 

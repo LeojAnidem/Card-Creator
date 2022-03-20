@@ -1,4 +1,4 @@
-import {_, createElement} from 'https://cdn.jsdelivr.net/gh/LeojAnidem/Library@fabe9c6/domFunctions.js'
+import {_, createElement} from 'https://cdn.jsdelivr.net/gh/LeojAnidem/Library/domFunctions.js'
 
 class Product {
     constructor (id, img, name, category, details, options, price){

@@ -1,4 +1,4 @@
-import {_, createElement, getContrast} from 'https://cdn.jsdelivr.net/gh/LeojAnidem/Library@fabe9c6/domFunctions.js'
+import {_, createElement, refreshCSS, getContrast} from 'https://cdn.jsdelivr.net/gh/LeojAnidem/Library/domFunctions.js'
 
 class Card {
     constructor (color, product){
