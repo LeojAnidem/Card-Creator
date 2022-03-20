@@ -11,7 +11,7 @@
     <title>Card Creator</title>
 
     <!-- Css -->
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="./styles.css">
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
@@ -77,11 +77,11 @@
                                     <div class="detailHeader">
 
                                         <div class="name">
-                                            <input type="text" id="otp" placeholder="Vans MaxQ+" minlength="3" maxlength="15" disabled required>
+                                            <input type="text" id="otp" class="nameProduct" placeholder="Vans MaxQ+" minlength="3" maxlength="15" disabled required>
                                         </div>
     
                                         <div class="category">
-                                            <select name="category" id="otp" disabled required>
+                                            <select name="category" id="otp" class="categoryProduct" disabled required>
                                                 <option value="Men's Shoes">Men's Shoes</option>
                                                 <option value="Woman's Shoes">Woman's Shoes</option>
                                             </select>
@@ -91,7 +91,7 @@
                                     
                                     <div class="detail">
                                         <span>PRODUCT DETAILS</span>
-                                        <textarea name="details" id="otp" maxlength="54" disabled placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." required></textarea>
+                                        <textarea name="details" id="otp" class="detailProduct" maxlength="54" disabled placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." required></textarea>
                                     </div>  
                                         
                                     <div class="sizeOpc">
@@ -155,72 +155,6 @@
     <section class="encapsulado swiper mySwiper">
         
         <div class="swiper-wrapper">
-            <!-- <div class="swiper-slide">
-                <div class="card">
-
-                    <div class="imgBx">
-                        <img src="https://www.vans.com.co/arquivos/e-style-banner-4.png" alt="Tennis-vans">
-                    </div>
-
-                    <div class="details">
-
-                        <div class="title">
-                            <h1>Vans MaxQ+</h1>
-                            <p>Men's Shoes</p>
-                        </div>
-                        
-                        <div class="productDetails">
-                            <h5>PRODUCT DETAILS</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-
-                        
-                        <form class="cardOptions">
-                            <div class="size">
-                                <h5>SIZE</h5>
-                                
-                                <div class="selector">
-                                    
-                                    <div class="selectorItem">
-                                        <input type="radio" id="item1" name="option" required>
-                                        <label for="item1">36</label>
-                                    </div>
-
-                                    <div class="selectorItem">
-                                        <input type="radio" id="item2" name="option" required>
-                                        <label for="item2">38</label>
-                                    </div>
-
-                                    <div class="selectorItem">
-                                        <input type="radio" id="item3" name="option" required>
-                                        <label for="item3">40</label>
-                                    </div>
-
-                                    <div class="selectorItem">
-                                        <input type="radio" id="item4" name="option" required>
-                                        <label for="item4">42</label>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="addCart">
-                            
-                                <div class="price">
-                                    <h2>$</h2>
-                                    <h1>159</h1>
-                                    <h3>.99</h3>
-                                </div>
-
-                                <button>Add to Cart</button>
-                            </div>
-
-                        </form>
-                    </div>
-
-                </div>
-            </div> -->
         </div>
 
         <div class="swiper-pagination"></div>
@@ -237,7 +171,7 @@
     
     <!-- Scripts y mas -------------------------------------- -->
 
-    <script  type="module" src="/main.js"></script>
+    <script  type="module" src="./main.js"></script>
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
