@@ -7,32 +7,53 @@ class Card {
     }
 
     applyColor(id){
+        let colorLetter = getContrast(this.color),
+            style = document.createElement('style');
 
-        let css = `   
+        let css = `                          
+                    .${id} .card{
+                        background: ${colorLetter};
+                    }
+                    
+                    .${id} .imgBx{
+                        background: ${colorLetter};
+                    }
+
                     .${id} .details{
                         background: ${this.color};
+                        color: ${colorLetter};
+                    }
+
+                    .${id} .details::before{
+                        border-left: 10px solid ${colorLetter};
+                    }
+
+                    .${id} .selectorItem{
+                        border: 1px solid ${colorLetter};
                     }
 
                     .${id} .selectorItem:hover{
-                        color: ${this.color} ;
+                        color: ${this.color};
+                        background: ${colorLetter};
                     }
 
                     .${id} .selectorItem input:checked + label{
                         color: ${this.color};
+                        background: ${colorLetter};
                     }
 
                     .${id} .addCart button{
                         color: ${this.color};
+                        background: ${colorLetter};
                     }
 
                     .${id} .addCart button:hover{
                         background: ${this.color};
-                        color: #ffffff;
+                        color: ${colorLetter};
+                        border: 2px solid ${colorLetter};
                     }
                     
                 `;
-
-        let style = document.createElement('style');
 
         if (style.styleSheet) {
             style.styleSheet.cssText = css;

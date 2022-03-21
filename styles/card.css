@@ -1,0 +1,174 @@
+.encapsulado {
+    max-width: 95%;
+    height: 480px;
+
+    display: none;
+}
+
+.card 
+{
+    position: relative;
+
+    width: 300px;
+    height: 400px;
+    
+    display: flex;
+
+    box-shadow: 0 5px 12px rgba(126, 126, 126, 0.548);
+
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover 
+{
+    width: 600px;
+}
+
+.imgBx 
+{
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    
+    min-width: 300px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgBx img 
+{
+    max-width: 250px;
+    max-height: 325px;
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover .imgBx img
+{
+    transform: rotate(15deg);
+}
+
+.details 
+{
+    position: absolute;
+    z-index: 1;
+    left: 0;
+
+    min-width: 300px;
+    height: 100%;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover .details{
+    left: 300px;
+}
+
+.details::before 
+{
+    content: '';
+    position: absolute;
+    
+    left: 0;
+    width: 0;
+    height: 0;
+    
+    /* Triangulo */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.details .title
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.productDetails
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.size 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.selector
+{
+    display: flex;
+    gap: 10px;
+}
+
+.selectorItem
+{   
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+}
+
+.selectorItem input
+{
+    appearance: none;
+    display: none;
+} 
+
+.selectorItem label
+{
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.5s ease-in-out;
+}
+
+.cardOptions 
+{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 30px;
+}
+
+.addCart 
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.price  {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    font-size: 1.3rem;
+}
+
+.addCart button
+{
+    cursor: pointer;
+    border: none;
+    padding: 0 20px;
+
+    font-weight: 400;
+    font-size: .9rem;
+}

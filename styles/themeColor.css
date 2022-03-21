@@ -1,0 +1,19 @@
+.ligthDarkMode .fa-moon{
+    display: none;
+}
+
+.ligthDarkMode input:checked ~ label .fa-moon{
+    display: none;
+}
+
+.ligthDarkMode input:checked ~ label .fa-sun{
+    display: block;
+}
+
+.ligthDarkMode input:not(:checked) ~ label .fa-moon{
+    display: block;
+}
+
+.ligthDarkMode input:not(:checked) ~ label .fa-sun{
+    display: none;
+}

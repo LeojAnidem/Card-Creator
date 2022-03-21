@@ -1,0 +1,67 @@
+:root{
+    --c_navBar: #272727;
+    --c_logo: #016fff;
+    --c_logoFont: #ffffff;
+
+    --c_on: #ebebeb;
+    --c_off: #9c9c9c;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    padding: 20px 60px;
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--c_navBar);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.377);
+}  
+
+.navbarLogo {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbarLogo i {
+    font-size: 1.9rem;
+    color: var(--c_logo);
+}
+
+.navbarLogo p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--c_logoFont);
+}
+
+.navbarMenu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbarMenu ul li{
+    font-size: 1.9rem;
+    color: var(--c_off);
+}
+
+.navbarMenu ul li:hover {
+    color: var(--c_on);
+}
+
+.navbarMenu ul li label{
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.navbarMenu ul li input{
+    display: none;
+} 

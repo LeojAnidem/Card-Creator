@@ -13,16 +13,10 @@
     <!-- Css -->
     <link rel="stylesheet" href="./styles.css">
 
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-
-    <!-- ICONS - font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
 </head>
 
 <body>
-    <section class="navbar">
+    <nav class="navbar">
 
         <div class="navbarLogo">
             <i class="fas fa-vr-cardboard"></i>
@@ -31,6 +25,7 @@
 
         <div class="navbarMenu">
             <ul>
+                
                 <li class="ligthDarkMode">
                     <input type="checkBox" id="darkMode" name="chk_mode" checked>
                     <label for="darkMode">
@@ -40,6 +35,7 @@
                 </li>
 
                 <li class="CreateCard">
+
                     <input type="checkBox" id="panelCreate" name="'chk_panel">
                     <label for="panelCreate">
                         <i class="far fa-plus-square"></i>
@@ -59,7 +55,7 @@
                                 </div>
 
                                 <div class="imgSelect">
-                                    <input type="file"  id="imgHolder" required>
+                                    <input type="file"  id="imgHolder" accept="image/*" required>
                                     <label class="disabled" id="otp" for="imgHolder">
                                         <img id="imgPreview" alt="Click me, to add Image!">
                                     </label>
@@ -102,7 +98,7 @@
                                             <div class="items">
                                             
                                                 <div class="item">
-                                                    <input type="text" pattern='\d*' id="otp" placeholder="32" maxlength="2" disabled required>
+                                                    <input type="text" id="otp" placeholder="32" maxlength="2" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" disabled required>
                                                 </div>
 
                                             </div>
@@ -127,7 +123,7 @@
 
                                         <div class="priceDetail">
                                             <h2>$</h2>
-                                            <input type="text" pattern="\d*" name="price" class="priceProduct disabled" id="otp" placeholder="159" maxlength="3" disabled required>
+                                            <input type="text" name="price" class="priceProduct disabled" id="otp" placeholder="159" maxlength="3" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" disabled required>
                                             <h3>.99</h3>
                                         </div>
                                         
@@ -138,9 +134,7 @@
 
                                     </div>
 
-                                </form>
-
-                            </div>
+                            </form>
 
                         </div>
 
@@ -149,8 +143,10 @@
                 </li>
 
             </ul>
+
         </div>
-    </section>
+
+    </nav>
 
     <section class="encapsulado swiper mySwiper">
         
@@ -161,13 +157,13 @@
         
     </section>
 
-    <section class="footer">
+    <footer class="footer">
         <p>Made with</p>
         <i class="fas fa-heart"></i>
         <p>
             by <a href="https://github.com/LeojAnidem">Jeremy Medina</a>
         </p> 
-    </section>
+    </footer>
     
     <!-- Scripts y mas -------------------------------------- -->
 

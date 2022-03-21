@@ -6,6 +6,8 @@ import {Img} from './Objects/Img.js';
 import {Product} from './Objects/Product.js';
 import {Card} from './Objects/Card.js';
 
+let firstclick = false;
+
 //Funcion creadora
 const createCard = function(){
     // Declaracion de variables
@@ -46,7 +48,9 @@ const createCard = function(){
             iterator = 0;
 
         optionSelect.forEach(e => {
-            if (iterator === 0){childValue = e.childNodes[1].value;}
+            if (iterator === 0 && firstclick != true){
+                childValue = e.childNodes[1].value;
+            }
             else{childValue = e.lastChild.value;}
 
             if(childValue === ''){childValue = _('.creatorCard .item input').placeholder;}
@@ -66,7 +70,35 @@ const createCard = function(){
         // Guardamos los productos y cartas en arreglos
         cards.push(card);
 
+        // reseteamos el form
+        _('#imgPreview').removeAttribute('src');
+        _('.nameProduct').value = '';
+        _('.categoryProduct').value = `Men's Shoes`;
+        _('.detailProduct').value = '';
+        _('.priceProduct').value = '';
+
+        let opcFather = _('.creatorCard .items');
+        
+        for(let i = 0; i < optionSelect.length; i++){
+            let numOptions =  document.querySelectorAll('.creatorCard .item');
+
+            if (numOptions.length != 1){
+                opcFather.removeChild(opcFather.firstChild);
+            } 
+        }
+
+        let removeItem = _('.creatorCard .delete'),
+            panel = _('#panelCreate');
+
+        removeItem.className += ' hidden';
+        panel.checked = false;
+
+        // Aumentamos el iterador
         num++;
+        firstclick = true;
+
+        // Mostramos el objeto card
+        console.log(cards);
     });
 }
 

@@ -1,0 +1,28 @@
+:root{
+    --c_text: #ebebeb;
+    --c_url: #016fff;
+    --c_heart: #fa3b3b;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    margin: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 1.3rem;
+    color: var(--c_text);
+}
+
+.footer a{
+    text-decoration: none;
+    font-weight: 400;
+    color: var(--c_url);
+}
+
+.footer .fa-heart {
+    color: var(--c_heart);
+}

@@ -3,11 +3,28 @@ import {_, createElement, imgPreview, getContrast} from 'https://cdn.jsdelivr.ne
 const createPanel = function(){
     const editChk = _('#edit'),
         addItem = _('.creatorCard .add'),
+        colorInput = _('#colorSelector'),
         removeItem = _('.creatorCard .delete');
 
-    let numId = 0;
+    let numId = 0,
+        numItems = '';
 
     imgPreview('#imgHolder', '#imgPreview');
+
+    // Cambiamos el color en tiempo real
+    colorInput.addEventListener('change', function(){
+        let color = colorInput.value,
+            colorLetter = getContrast(color),
+            colorPlaceholder = getContrast(colorLetter);
+
+            console.log(colorLetter);
+            console.log(colorPlaceholder);
+
+        document.documentElement.style.setProperty('--c_creatorCardBackground', color);
+        document.documentElement.style.setProperty('--c_creatorCardImgBackground', colorLetter);
+        document.documentElement.style.setProperty('--c_creatorCardPlaceHolder', colorPlaceholder);
+        document.documentElement.style.setProperty('--c_creatorCardFont', colorLetter);
+    });
 
     // Desactivamos o activamos la edicion de la informacion
     editChk.addEventListener('change', function() {
@@ -33,11 +50,13 @@ const createPanel = function(){
     
         let itemId = `item${numId}`;
 
-        if (numId === 0){
+        numItems = document.querySelectorAll('.creatorCard .item').length;
+
+        if (numItems === 1){
             removeItem.classList.remove('hidden');
         }
 
-        if (numId === 3){
+        if (numItems === 4){
             addItem.className += ' hidden';
         }
 
@@ -45,7 +64,7 @@ const createPanel = function(){
         createElement(`.creatorCard .${itemId}`, 'input', 'text', '', '32');
 
         let item = _(`.creatorCard .items .${itemId} input`);
-        item.setAttribute('pattern', '\\d*');
+        item.setAttribute('onKeypress', 'if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;');
         item.setAttribute('maxLength', '2')
         item.setAttribute('id', 'otp'); 
 
@@ -57,19 +76,18 @@ const createPanel = function(){
         let lastItem = _('.creatorCard .items').lastChild;
         lastItem.remove();
         
-        console.log(numId);
-        
-        if(numId === 1){
+        numItems = document.querySelectorAll('.creatorCard .item').length;
+
+        if(numItems === 1){
             removeItem.className += ' hidden';
         }
 
-        if(numId === 4){
+        if(numItems === 4){
             addItem.classList.remove('hidden');
         }
 
         numId--;
     });
-
 }
 
 export {createPanel};
