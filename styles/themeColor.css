@@ -1,19 +1,13 @@
-.ligthDarkMode .fa-moon{
+.navbar__menu__ligth-dark-mode > label > .fa-moon{
     display: none;
 }
 
-.ligthDarkMode input:checked ~ label .fa-moon{
+.navbar__menu__ligth-dark-mode > label > .fa-moon,
+.navbar__menu__ligth-dark-mode > input:not(:checked) ~ label > .fa-sun
+{
     display: none;
 }
 
-.ligthDarkMode input:checked ~ label .fa-sun{
+.navbar__menu__ligth-dark-mode > input:not(:checked) ~ label > .fa-moon{
     display: block;
-}
-
-.ligthDarkMode input:not(:checked) ~ label .fa-moon{
-    display: block;
-}
-
-.ligthDarkMode input:not(:checked) ~ label .fa-sun{
-    display: none;
 }

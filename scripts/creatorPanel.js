@@ -2,9 +2,9 @@ import {_, createElement, imgPreview, getContrast} from 'https://cdn.jsdelivr.ne
 
 const createPanel = function(){
     const editChk = _('#edit'),
-        addItem = _('.creatorCard .add'),
+        addItem = _('.size-div__add-delete-item .add'),
         colorInput = _('#colorSelector'),
-        removeItem = _('.creatorCard .delete');
+        removeItem = _('.size-div__add-delete-item .delete');
 
     let numId = 0,
         numItems = '';
@@ -50,7 +50,7 @@ const createPanel = function(){
     
         let itemId = `item${numId}`;
 
-        numItems = document.querySelectorAll('.creatorCard .item').length;
+        numItems = document.querySelectorAll('.size-div__items__item').length;
 
         if (numItems === 1){
             removeItem.classList.remove('hidden');
@@ -60,10 +60,10 @@ const createPanel = function(){
             addItem.className += ' hidden';
         }
 
-        createElement('.creatorCard .items', 'div' , `item ${itemId}`);
-        createElement(`.creatorCard .${itemId}`, 'input', 'text', '', '32');
+        createElement('.size-div__items', 'div' , `size-div__items__item ${itemId}`);
+        createElement(`.size-div__items .${itemId}`, 'input', 'text', '', '32');
 
-        let item = _(`.creatorCard .items .${itemId} input`);
+        let item = _(`.size-div__items .${itemId} input`);
         item.setAttribute('onKeypress', 'if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;');
         item.setAttribute('maxLength', '2')
         item.setAttribute('id', 'otp'); 
@@ -73,10 +73,10 @@ const createPanel = function(){
     
     // Eliminamos opciones de size
     removeItem.addEventListener('click', function(){
-        let lastItem = _('.creatorCard .items').lastChild;
+        let lastItem = _('.size-div__items').lastChild;
         lastItem.remove();
         
-        numItems = document.querySelectorAll('.creatorCard .item').length;
+        numItems = document.querySelectorAll('.size-div__items__item').length;
 
         if(numItems === 1){
             removeItem.className += ' hidden';

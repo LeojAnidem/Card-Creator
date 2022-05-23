@@ -31,7 +31,7 @@ const createCard = function(){
             color = _('#colorSelector').value,
             category = _('.categoryProduct').value,
             detail = _('.detailProduct').value,
-            optionSelect = document.querySelectorAll('.creatorCard .item'),
+            optionSelect = document.querySelectorAll('.size-div__items__item'),
             options = [],
             price = _('.priceProduct').value;
 
@@ -51,9 +51,10 @@ const createCard = function(){
             if (iterator === 0 && firstclick != true){
                 childValue = e.childNodes[1].value;
             }
+            
             else{childValue = e.lastChild.value;}
 
-            if(childValue === ''){childValue = _('.creatorCard .item input').placeholder;}
+            if(childValue === ''){childValue = _('.size-div__items__item input').placeholder;}
 
             options.push(childValue);
 
@@ -77,17 +78,17 @@ const createCard = function(){
         _('.detailProduct').value = '';
         _('.priceProduct').value = '';
 
-        let opcFather = _('.creatorCard .items');
+        let opcFather = _('.size-div__items');
         
         for(let i = 0; i < optionSelect.length; i++){
-            let numOptions =  document.querySelectorAll('.creatorCard .item');
+            let numOptions =  document.querySelectorAll('.size-div__items__item');
 
             if (numOptions.length != 1){
                 opcFather.removeChild(opcFather.firstChild);
             } 
         }
 
-        let removeItem = _('.creatorCard .delete'),
+        let removeItem = _('.size-div__add-delete-item .delete'),
             panel = _('#panelCreate');
 
         removeItem.className += ' hidden';

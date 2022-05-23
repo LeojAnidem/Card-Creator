@@ -16,148 +16,120 @@
 </head>
 
 <body>
-    <nav class="navbar">
-
-        <div class="navbarLogo">
+    <header class="navbar">
+        <section class="navbar__logo">
             <i class="fas fa-vr-cardboard"></i>
             <p>Card Creator</p>
-        </div>
+        </section>
 
-        <div class="navbarMenu">
-            <ul>
-                
-                <li class="ligthDarkMode">
-                    <input type="checkBox" id="darkMode" name="chk_mode" checked>
-                    <label for="darkMode">
-                        <i class="fa-solid fa-sun"></i>
-                        <i class="fa-solid fa-moon"></i>
-                    </label>
-                </li>
+        <ul class="navbar__menu">
+            <li class="navbar__menu__ligth-dark-mode">
+                <input type="checkBox" id="darkMode" name="chk_mode" checked>
+                <label for="darkMode">
+                    <i class="fa-solid fa-sun"></i>
+                    <i class="fa-solid fa-moon"></i>
+                </label>
+            </li>
 
-                <li class="CreateCard">
+            <li class="navbar__menu__create-card">
+                <input type="checkBox" id="panelCreate" name="'chk_panel">
+                <label for="panelCreate">
+                    <i class="far fa-plus-square"></i>
+                </label>
 
-                    <input type="checkBox" id="panelCreate" name="'chk_panel">
-                    <label for="panelCreate">
-                        <i class="far fa-plus-square"></i>
-                    </label>
+                <div class="create-card__panel-wrap">
+                    <div class="create-card__panel-wrap__panel">
+                        <form class="panel__creator-card">
+                            <div class="panel__creator-card__edit">
+                                <input type="checkbox" id="edit">
+                                <label for="edit">
+                                    <i class="fas fa-edit"></i>
+                                </label>
+                            </div>
 
-                    <div class="panelWrap">
-                        
-                        <div class="panel">
+                            <div class="panel__creator-card__img-select">
+                                <input type="file"  id="imgHolder" accept="image/*" required>
+                                <label class="disabled" id="otp" for="imgHolder">
+                                    <img id="imgPreview" alt="Click me, to add Image!">
+                                </label>
+                            </div>
 
-                            <form class="creatorCard">
-                                
-                                <div class="edit">
-                                    <input type="checkbox" id="edit">
-                                    <label for="edit">
-                                        <i class="fas fa-edit"></i>
+                            <div class="panel__creator-card__details-select">
+                                <div class="details-select__color">
+                                    <input type="color" id="colorSelector" value="#016fff" required>
+                                    <label class="disabled" id="otp" for="colorSelector">
+                                        <i class="fas fa-palette"></i>
                                     </label>
                                 </div>
 
-                                <div class="imgSelect">
-                                    <input type="file"  id="imgHolder" accept="image/*" required>
-                                    <label class="disabled" id="otp" for="imgHolder">
-                                        <img id="imgPreview" alt="Click me, to add Image!">
-                                    </label>
-                                </div>
-
-                                <div class="detailsSelect">
-
-                                    <div class="color">
-                                        <input type="color" id="colorSelector" value="#016fff" required>
-                                        <label class="disabled" id="otp" for="colorSelector">
-                                            <i class="fas fa-palette"></i>
-                                        </label>
+                                <div class="details-select__detail-header">
+                                    <div class="details-select__detail-header__name">
+                                        <input type="text" id="otp" class="nameProduct" placeholder="Vans MaxQ+" minlength="3" maxlength="15" disabled required>
                                     </div>
 
-                                    <div class="detailHeader">
+                                    <div class="details-select__detail-header__category">
+                                        <select name="category" id="otp" class="categoryProduct" disabled required>
+                                            <option value="Men's Shoes">Men's Shoes</option>
+                                            <option value="Woman's Shoes">Woman's Shoes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="details-select__detail">
+                                    <span>PRODUCT DETAILS</span>
+                                    <textarea name="details" id="otp" class="detailProduct" maxlength="54" disabled placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." required></textarea>
+                                </div>  
+                                    
+                                <div class="details-select__size-opc">
+                                    <span>SIZE</span>
 
-                                        <div class="name">
-                                            <input type="text" id="otp" class="nameProduct" placeholder="Vans MaxQ+" minlength="3" maxlength="15" disabled required>
+                                    <div class="details-select__size-opc__size-div">
+                                        <div class="size-div__items">
+                                            <div class="size-div__items__item">
+                                                <input type="text" id="otp" placeholder="32" maxlength="2" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" disabled required>
+                                            </div>
                                         </div>
-    
-                                        <div class="category">
-                                            <select name="category" id="otp" class="categoryProduct" disabled required>
-                                                <option value="Men's Shoes">Men's Shoes</option>
-                                                <option value="Woman's Shoes">Woman's Shoes</option>
-                                            </select>
-                                        </div>
+                                        
+                                        <div class="size-div__add-delete-item">
+                                            <Button type="button" class="add disabled" id="otp" disabled>
+                                                <i class="fas fa-plus"></i>
+                                            </Button>
 
+                                            <Button type="button" class="delete disabled hidden" id="otp" disabled>
+                                                <i class="fas fa-minus"></i>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="details-select__add-card">
+                                    <div class="details-select__add-cart__price-detail">
+                                        <h2>$</h2>
+                                        <input type="text" name="price" class="priceProduct disabled" id="otp" placeholder="159" maxlength="3" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" disabled required>
+                                        <h3>.99</h3>
                                     </div>
                                     
-                                    <div class="detail">
-                                        <span>PRODUCT DETAILS</span>
-                                        <textarea name="details" id="otp" class="detailProduct" maxlength="54" disabled placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit." required></textarea>
-                                    </div>  
-                                        
-                                    <div class="sizeOpc">
-                                        <span>SIZE</span>
-
-                                        <div class="sizeDiv">
-
-                                            <div class="items">
-                                            
-                                                <div class="item">
-                                                    <input type="text" id="otp" placeholder="32" maxlength="2" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" disabled required>
-                                                </div>
-
-                                            </div>
-                                            
-                                            <div class="addDeleteItem">
-                                                    
-                                                <Button type="button" class="add disabled" id="otp" disabled>
-                                                    <i class="fas fa-plus"></i>
-                                                </Button>
-
-                                                <Button type="button" class="delete disabled hidden" id="otp" disabled>
-                                                    <i class="fas fa-minus"></i>
-                                                </Button>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="addCard">
-
-                                        <div class="priceDetail">
-                                            <h2>$</h2>
-                                            <input type="text" name="price" class="priceProduct disabled" id="otp" placeholder="159" maxlength="3" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" disabled required>
-                                            <h3>.99</h3>
-                                        </div>
-                                        
-                                        <Button id="otp" class="createCard disabled" disabled>
-                                            <i class="fas fa-plus"></i> 
-                                            Add Card
-                                        </Button>
-
-                                    </div>
-
-                            </form>
-
-                        </div>
-
+                                    <Button id="otp" class="createCard disabled" disabled>
+                                        <i class="fas fa-plus"></i> 
+                                        Add Card
+                                    </Button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                </div>
+            </li>
+        </ul>
+    </header>
 
-                </li>
+    <main class="encapsulado swiper mySwiper">
+        <section class="swiper-wrapper">
+        </section>
 
-            </ul>
+        <section class="swiper-pagination"></section>
+    </main>
 
-        </div>
-
-    </nav>
-
-    <section class="encapsulado swiper mySwiper">
-        
-        <div class="swiper-wrapper">
-        </div>
-
-        <div class="swiper-pagination"></div>
-        
-    </section>
-
-    <footer class="footer">
+    <footer>
         <p>Made with</p>
         <i class="fas fa-heart"></i>
         <p>
@@ -166,7 +138,6 @@
     </footer>
     
     <!-- Scripts y mas -------------------------------------- -->
-
     <script  type="module" src="./main.js"></script>
 
     <!-- Swiper JS -->
@@ -174,14 +145,15 @@
 
     <!-- Initialize Swiper -->
     <script>
-
         let slides = 3;
 
-        if (screen.width < 1920){
+        console.log(window.innerWidth);
+
+        if (window.innerWidth < 1920){
             slides = 2;
         }
 
-        if (screen.width <= 1024){
+        if (window.innerWidth <= 1024){
             slides = 1;
         }
 
@@ -195,7 +167,6 @@
             },
         });
     </script>
-
 </body>
 
 </html>

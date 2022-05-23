@@ -22,7 +22,7 @@
     box-shadow: 0 7px 20px rgba(0, 0, 0, 0.377);
 }  
 
-.navbarLogo {
+.navbar__logo{
     cursor: pointer;
 
     display: flex;
@@ -30,38 +30,37 @@
     gap: 10px;
 }
 
-.navbarLogo i {
+.navbar__logo > i{
     font-size: 1.9rem;
     color: var(--c_logo);
 }
 
-.navbarLogo p {
+.navbar__logo > p{
     font-size: 1.3rem;
     font-weight: 400;
+    
     color: var(--c_logoFont);
 }
 
-.navbarMenu ul {
-    list-style: none;
+.navbar__menu{
     display: flex;
     align-items: center;
     gap: 20px;
-}
 
-.navbarMenu ul li{
     font-size: 1.9rem;
     color: var(--c_off);
-}
 
-.navbarMenu ul li:hover {
-    color: var(--c_on);
-}
-
-.navbarMenu ul li label{
-    cursor: pointer;
     transition: 0.5s ease-in-out;
 }
 
-.navbarMenu ul li input{
+.navbar__menu > :hover{
+    color: var(--c_on);
+}
+
+.navbar__menu > li > label{
+    cursor: pointer;
+}
+
+.navbar__menu input{
     display: none;
 } 

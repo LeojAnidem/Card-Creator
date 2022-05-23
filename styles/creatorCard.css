@@ -10,18 +10,24 @@
     --c_buttonDelete: #fa3b3b;
 }
 
-.panelWrap {
+.navbar__menu__create-card > input:checked ~ .create-card__panel-wrap{
+    display: block;
+
+    transition: 0.5s ease-in-out;
+}
+
+.create-card__panel-wrap {
     position: fixed;
-    display: none;
     z-index: 10;
     top: 0;
     right: 0;
+
+    display: none;
 }
 
 /* Fondo -------------------------------------------------------------------*/
-.panel{
+.create-card__panel-wrap__panel{
     position: absolute;
-    
     top: 70px;
     right: 0;
 
@@ -30,38 +36,32 @@
     box-shadow: 0 7px 20px rgba(0, 0, 0, 0.377);
 }
 
-.panel::before{
-    content: '';
+.create-card__panel-wrap__panel::before{
     position: absolute;
+    content: '';
     top: -14px;
     right: 58px;
 
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 17px solid var(--c_panelCreateCard);
-    
 }
 
-input:checked ~ .panelWrap {
-    display: block;
-    transition: 0.5s ease-in-out;
-}
-
-.navbarMenu .panel input{
+.create-card__panel-wrap__panel input{
     display: block;
 }
 
 /* Tarjeta -------------------------------------------------------------------*/
 
 /* Fondo */
-.creatorCard {
+.panel__creator-card{
     position: relative;
     margin: 20px;
 
+    display: flex;
+
     height: 400px;
     width: 600px;
-
-    display: flex;
 
     background: var(--c_creatorCardImgBackground);
     box-shadow: 0 5px 15px rgb(49, 49, 49);
@@ -71,73 +71,9 @@ input:checked ~ .panelWrap {
     transition: 0.5s ease-in-out;
 }
 
-/* Panel izquierdo (Imagen) -------------------*/
-.creatorCard .imgSelect{
-    position: relative;
-    overflow: hidden;
-    
-    min-width: 300px;
-    max-height: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-weight: normal;
-    background: var(--c_creatorCardImgBackground);
-    color: var(--c_creatorCardPlaceHolder);
-}
-
-/* imagen */
-.creatorCard .imgSelect img{
-    max-width: 250px;
-    max-height: 325px;
-    transition: 0.5s ease-in-out;
-}
-
-.creatorCard .imgSelect img::before{
-    position: absolute;
-    content: "\0026A0  Sin imagen! \A";
-    text-align:center;
-
-    left: 0;
-    width: 100%;
-
-    font-size: 1.3rem;
-    font-weight: normal;
-
-    background: var(--c_creatorCardImgBackground);
-    color:var(--c_creatorCardPlaceHolder);
-}
-
-.creatorCard .imgSelect input{
-    display: none;
-}
-
-/* Panel derecho -------------------*/
-.creatorCard .detailsSelect{
-    position: relative;
-    overflow: hidden;
-
-    width: 300px;
-    height: 100%;
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    
-    color: var(--c_creatorCardFont);
-    background: var(--c_creatorCardBackground);
-
-    transition: 0.5s ease-in-out;
-}
-
 /* Icono editar */
-.creatorCard .edit{
+.panel__creator-card__edit{
     position: absolute;
-    cursor: pointer;
     padding: 10px;
 
     z-index: 1;
@@ -149,84 +85,150 @@ input:checked ~ .panelWrap {
     transition: 0.5s ease-in-out;
 }
 
-.creatorCard .edit input{
+.panel__creator-card__edit > input{
     display: none;
 }
 
+.panel__creator-card__edit > label{
+    cursor: pointer;
+}
+
+/* Panel izquierdo (Imagen) -------------------*/
+.panel__creator-card__img-select{
+    position: relative;
+    overflow: hidden;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+    min-width: 300px;
+    max-height: 100%;
+
+    background: var(--c_creatorCardImgBackground);
+    color: var(--c_creatorCardPlaceHolder);
+    
+    font-weight: normal;
+}
+
+.panel__creator-card__img-select > input{
+    display: none;
+}
+
+/* imagen */
+.panel__creator-card__img-select > label > img{
+    max-width: 250px;
+    max-height: 325px;
+
+    transition: 0.5s ease-in-out;
+}
+
+.panel__creator-card__img-select > label > img::before{
+    position: absolute;
+    content: "\0026A0  Sin imagen! \A";
+    left: 0;
+
+    width: 100%;
+
+    background: var(--c_creatorCardImgBackground);
+    color:var(--c_creatorCardPlaceHolder);
+    
+    text-align:center;
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+/* Panel derecho -------------------*/
+.panel__creator-card__details-select{
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    width: 300px;
+    height: 100%;
+    padding: 20px;
+    
+    color: var(--c_creatorCardFont);
+    background: var(--c_creatorCardBackground);
+
+    transition: 0.5s ease-in-out;
+}
+
 /* Icono color */
-.creatorCard .color{
+.details-select__color{
     position: absolute;
     top: 10px;
     right: 10px;
 }
 
-.creatorCard .color label i{
-    font-size: 1.5rem;
-    color: var(--c_creatorCardFont);
-}
-
-.creatorCard .color input{
+.details-select__color > input{
     position: absolute;
     z-index: -2;
     top: 5px;
 }
 
+.details-select__color > label > i{
+    color: var(--c_creatorCardFont);
+    
+    font-size: 1.5rem;
+}
+
 /* Parte superior -------------------*/
-.creatorCard .detailHeader{
+.details-select__detail-header{
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
 /* Titulo */
-.creatorCard .name input[type="text"]{
+.details-select__detail-header__name > input{
     overflow: hidden;
-    
-    outline: none;
-    appearance: none;
-    border: none;
-    background: transparent;
     
     max-width: 90%;
     height: auto;
 
+    background: transparent;
+
+    color: var(--c_creatorCardFont);
+
     font-size: 1.9rem;
     font-weight: bold;
-
-    color: var(--c_creatorCardFont);
 }
 
-
-.creatorCard .name input::placeholder{
-    color: var(--c_creatorCardFont);
-    opacity: .4;
-}
-
-.creatorCard .name input:focus{
-    border-bottom: 1px solid var(--c_creatorCardFont);
-}
-
-.creatorCard .name input:enabled::placeholder{
+.details-select__detail-header__name > input:enabled::placeholder{
     opacity: 1;
 }
 
+.details-select__detail-header__name > input::placeholder{
+    opacity: .4;
+    color: var(--c_creatorCardFont);
+}
+
+.details-select__detail-header__name > input:focus{
+    border-bottom: 1px solid var(--c_creatorCardFont);
+}
+
 /* Categoria */
-.creatorCard .category{
+.details-select__detail-header__category{
     position: relative;
     cursor: pointer;
+    
     width: 140px;
 
     background: transparent;
 }
 
-.creatorCard .category::before{
+.details-select__detail-header__category::before{
     position: absolute;
     content: '';
+    pointer-events: none;
 
     right: 10px;
     bottom: 4px;
-
-    pointer-events: none;
 
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
@@ -236,72 +238,67 @@ input:checked ~ .panelWrap {
     
 }
 
-.creatorCard .category select{
+.details-select__detail-header__category > select{
     cursor: inherit;
-    outline: none;
-    appearance: none;
-    border: none;
-    background: var(--c_creatorCardBackground);
-
+    
     width: 100%;
+
+    background: var(--c_creatorCardBackground);
+    color: var(--c_creatorCardFont);
 
     font-size: 1rem;
     font-weight: lighter;
-    color: var(--c_creatorCardFont);
 }
 
 /* Parte central  -------------------*/
-.creatorCard .detail{
+.details-select__detail{
     position: relative;
     overflow: hidden;
-
-    width: 100%;
-
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
 
+    width: 100%;
+
     color: var(--c_creatorCardFont);
 }
 
-.creatorCard .detail span{
+.details-select__detail > span{
     font-size: 0.8rem;
     font-weight: bold;
 }
 
-.creatorCard .detail textarea{
+.details-select__detail > textarea{
     resize: none;
     overflow: hidden;
-    outline: none;
-    appearance: none;
-    border: none;
 
     width: 100%;
     height: 40px;
 
-    font-size: 1rem;
-    font-weight: lighter;
-
     background: transparent;
     color: var(--c_creatorCardFont);
+    
+    font-size: 1rem;
+    font-weight: lighter;
 }
 
-.creatorCard .detail textarea::placeholder{
+.details-select__detail > textarea::placeholder{
     color: var(--c_creatorCardFont);
     opacity: .4;
 }
 
-.creatorCard .detail textarea:focus{
-    border-bottom: 1px solid var(--c_creatorCardFont);
-}
-
-.creatorCard .detail textarea:enabled::placeholder{
+.details-select__detail > textarea:enabled::placeholder{
     opacity: 1;
 }
 
+.details-select__detail > textarea:focus{
+    border-bottom: 1px solid var(--c_creatorCardFont);
+}
+
 /* Size ------------------- */
-.creatorCard .sizeOpc{
+.details-select__size-opc{
     position: relative;
 
     display: flex;
@@ -309,12 +306,12 @@ input:checked ~ .panelWrap {
     gap: 5px;
 }
 
-.creatorCard .sizeOpc span{
+.details-select__size-opc > span{
     font-size: 0.8rem;
     font-weight: bold;
 }
 
-.creatorCard .sizeOpc .sizeDiv{
+.details-select__size-opc__size-div{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -322,160 +319,156 @@ input:checked ~ .panelWrap {
 }
 
 /* items  */
-.creatorCard .sizeOpc .items{
+.size-div__items{
     display: flex;
     justify-items: center;
     gap: 5px;
 }
 
-.creatorCard .items .item{ 
+.size-div__items__item{ 
     position: relative;
-
-    width: 40px;
-    height: 40px;
 
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-
+    
+    width: 40px;
+    height: 40px;
+    
     transition: 0.5s ease-in-out;
 }
 
-.creatorCard .item input{
-    appearance: none;
-    outline: none;
-    background: transparent;
-
+.size-div__items__item > input{
     width: 100%;
     height: 100%;
+    
+    border: 1px solid var(--c_creatorCardFont);
+    background: transparent;
+    color: var(--c_creatorCardFont);
     
     text-align: center;
     font-size: 1rem;
     font-weight: lighter;
-    border: 1px solid var(--c_creatorCardFont);
-
-    color: var(--c_creatorCardFont);
 }
 
-.creatorCard .item input::-webkit-inner-spin-button,
-.creatorCard .item input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.creatorCard .item input:focus{
+.size-div__items__item > input:focus{
     border-bottom: 1px solid var(--c_creatorCardFont);
 }
 
-.creatorCard .item input::placeholder{
+.size-div__items__item > input::placeholder{
     color: var(--c_creatorCardFont);
     opacity: 0.4;
 }
 
-.creatorCard .item input:enabled::placeholder{
+.size-div__items__item > input:enabled::placeholder{
     opacity: 1;
 }
 
+.size-div__items__item > input::-webkit-inner-spin-button,
+.size-div__items__item > input::-webkit-outer-spin-button 
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* Add Delete Btn */
-.creatorCard .addDeleteItem button{
-    appearance: none;
-    outline: none;
-    border: none;
+.size-div__add-delete-item > button{
     cursor: pointer;
     
     width: 25px;
     height: 25px;
     
-    font-weight: bold;
-    font-size: 1.1rem;
     border-radius: 3px;
     color: var(--c_creatorCardFont);
+    
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
-.creatorCard .addDeleteItem .add{
+.size-div__add-delete-item > .add{
     background: var(--c_buttonAdd);
 }
 
-.creatorCard .addDeleteItem .delete{
-    background: var(--c_buttonDelete);
-}
-
-.creatorCard .addDeleteItem .add:hover{
+.size-div__add-delete-item > .add:hover{
     background: var(--c_creatorCardFont);
     color: var(--c_buttonAdd);
 }
 
+.size-div__add-delete-item > .delete{
+    background: var(--c_buttonDelete);
+}
+
+.size-div__add-delete-item > .delete:hover{
+    background: var(--c_creatorCardFont);
+    color: var(--c_buttonDelete);
+}
+
 /* Footer ------------------- */
-.creatorCard .addCard{
+.details-select__add-card{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
 /* Precio */
-.creatorCard .priceDetail{
+.details-select__add-cart__price-detail{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.creatorCard .priceDetail h2{
+.details-select__add-cart__price-detail > h2{
     font-size: 2rem;
     font-weight: bold;
 }
 
-.creatorCard .priceDetail input{
-    appearance: none;
-    outline: none;
-    border: none;
-    background: transparent;
-
+.details-select__add-cart__price-detail > input{
     width: 60px;
+    
+    background: transparent;
+    color: var(--c_creatorCardFont);
 
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
+}
+
+.details-select__add-cart__price-detail > input:focus{
+    border-bottom: 1px solid var(--c_creatorCardFont);
+}
+
+.details-select__add-cart__price-detail > input::placeholder{
     color: var(--c_creatorCardFont);
 }
 
-.creatorCard .priceDetail input::-webkit-inner-spin-button,
-.creatorCard .priceDetail input::-webkit-outer-spin-button {
+.details-select__add-cart__price-detail > input::-webkit-inner-spin-button,
+.details-select__add-cart__price-detail > input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.creatorCard .priceDetail input:focus{
-    border-bottom: 1px solid var(--c_creatorCardFont);
-}
-
-.creatorCard .priceDetail h3{
+.details-select__add-cart__price-detail > h3{
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.creatorCard .priceDetail input::placeholder{
-    color: var(--c_creatorCardFont);
-}
-
 /* Boton  */
-.creatorCard .addCard button{
-    appearance: none;
-    outline: none;
-    background: transparent;
+.details-select__add-card > button{
     cursor: pointer;
-
+    
     width: 130px;
     height: 40px;
+    
+    border: 1px solid var(--c_creatorCardFont);
+    background: transparent;
+    color: var(--c_creatorCardFont);
 
     font-size: 1.2rem;
     font-weight: bold;
-
-    border: 1px solid var(--c_creatorCardFont);
-    color: var(--c_creatorCardFont);
 }
 
-.creatorCard .addCard button:hover{
+.details-select__add-card > button:hover{
     background: var(--c_creatorCardFont);
     color: var(--c_creatorCardBackground);
 }
